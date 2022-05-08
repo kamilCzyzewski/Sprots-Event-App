@@ -79,6 +79,24 @@
 			<artifactId>modelmapper</artifactId>
 			<version>3.1.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.webjars.npm</groupId>
+			<artifactId>bootstrap-icons</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>5.1.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.6.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
