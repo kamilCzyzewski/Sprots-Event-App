@@ -2,6 +2,7 @@ package com.event.app.sports.config;
 
 import com.event.app.sports.exception.SportsApplicationException;
 import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -15,6 +16,18 @@ class GlobalDefaultExceptionHandler {
 
     @ExceptionHandler(value = SportsApplicationException.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest req, SportsApplicationException e) throws SportsApplicationException {
+        if (AnnotationUtils.findAnnotation
+                (e.getClass(), ResponseStatus.class) != null)
+            throw e;
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("exception", e);
+        mav.addObject("url", req.getRequestURL());
+        mav.setViewName(DEFAULT_ERROR_VIEW);
+        return mav;
+    }
+
+    @ExceptionHandler(value = UsernameNotFoundException.class)
+    public ModelAndView defaultUsernameErrorHandler(HttpServletRequest req, SportsApplicationException e) throws SportsApplicationException {
         if (AnnotationUtils.findAnnotation
                 (e.getClass(), ResponseStatus.class) != null)
             throw e;
