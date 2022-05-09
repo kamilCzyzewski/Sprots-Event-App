@@ -13,4 +13,5 @@ public class UserModel {
     private String username;
     private String firstName;
     private String surname;
+    private String mail;
 }

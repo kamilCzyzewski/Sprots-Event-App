@@ -20,6 +20,7 @@ public class UserEntity implements UserDetails {
     private String password;
     private String firstName;
     private String surname;
+    private String mail;
 
     public UserEntity() {
     }
@@ -89,14 +90,23 @@ public class UserEntity implements UserDetails {
         return null;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
     @Override
     public String toString() {
         return "UserEntity{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + "***" + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", surname='" + surname + '\'' +
+                ", mail='" + mail + '\'' +
                 '}';
     }
 }

@@ -22,12 +22,7 @@ public class RegistrationService {
 
     public UserModel createUserFromRegistrationForm(RegistrationFormDTO registrationFormDTO, PasswordEncoder passwordEncoder) throws UserException {
         LOGGER.debug("isPasswordsEqual({}, {})", registrationFormDTO, passwordEncoder);
-        UserEntity user = new UserEntity();
-        user.setUsername(registrationFormDTO.getUsername());
-        user.setFirstName(registrationFormDTO.getFirstName());
-        user.setSurname(registrationFormDTO.getSurname());
-        user.setPassword(passwordEncoder.encode(registrationFormDTO.getPassword()));
-
+        UserEntity user = registrationFormDTO.toUserEntity(passwordEncoder);
         UserModel createdUser = userService.create(user);
         LOGGER.debug("isPasswordsEqual({}, {}) = {}", registrationFormDTO, passwordEncoder, createdUser);
 
