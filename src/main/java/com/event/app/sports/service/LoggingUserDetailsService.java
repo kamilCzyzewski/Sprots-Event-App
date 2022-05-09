@@ -21,13 +21,13 @@ public class LoggingUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        LOGGER.debug("loadUserByUsername({})", username);
+        LOGGER.info("loadUserByUsername({})", username);
         UserEntity user = userRepository.findOneByUsername(username);
         if (user != null) {
-            LOGGER.debug("loadUserByUsername({}) = {}", username, user);
+            LOGGER.info("loadUserByUsername({}) = {}", username, user);
             return user;
         }
-        LOGGER.debug("loadUserByUsername({}) = {}", username, "not found");
+        LOGGER.info("loadUserByUsername({}) = {}", username, "not found");
         throw new UsernameNotFoundException(
                 "Użytkownik '" + username + "' nie znaleziony");
     }

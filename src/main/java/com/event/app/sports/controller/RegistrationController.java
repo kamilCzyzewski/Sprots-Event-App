@@ -29,23 +29,23 @@ public class RegistrationController {
     }
 
     @GetMapping
-    public String registrationView(Model model){
-        LOGGER.debug("registrationView()");
+    public String registrationView(Model model) {
+        LOGGER.info("registrationView()");
         model.addAttribute("registrationFormDTO", new RegistrationFormDTO());
-        LOGGER.debug("registrationView()");
+        LOGGER.info("registrationView()");
 
         return "registration";
     }
 
     @PostMapping
     public String createUser(@Valid RegistrationFormDTO registrationFormDTO, Errors errors) throws UserException {
-        LOGGER.debug("createUser({})", registrationFormDTO);
-        if(errors.hasErrors()){
+        LOGGER.info("createUser({})", registrationFormDTO);
+        if (errors.hasErrors()) {
             return "registration";
         }
 
         registrationService.createUserFromRegistrationForm(registrationFormDTO, passwordEncoder);
-        LOGGER.debug("createUser({})", registrationFormDTO);
+        LOGGER.info("createUser({})", registrationFormDTO);
 
         return "redirect:/login";
     }
