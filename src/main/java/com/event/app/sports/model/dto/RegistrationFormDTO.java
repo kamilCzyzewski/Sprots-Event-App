@@ -7,7 +7,6 @@ import javax.validation.constraints.Pattern;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@ToString
 @Builder
 public class RegistrationFormDTO {
 
@@ -22,11 +21,15 @@ public class RegistrationFormDTO {
 
     @NotBlank(message = "Pole musi być uzupełnione")
     @Pattern(regexp="(?=^.{8,}$)(?=.*\\d)(?=.*[!@#$%^&*]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$")
-    private String passwordFirstTry;
+    private String password;
 
-    @NotBlank(message = "Pole musi być uzupełnione")
-    @Pattern(regexp="(?=^.{8,}$)(?=.*\\d)(?=.*[!@#$%^&*]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$")
-    private String passwordSecondTry;
-
-
+    @Override
+    public String toString() {
+        return "RegistrationFormDTO{" +
+                "username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", surname='" + surname + '\'' +
+                ", password='" + "***" + '\'' +
+                '}';
+    }
 }
