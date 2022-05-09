@@ -24,7 +24,7 @@ public class RegistrationFormDTO implements Serializable {
     @NotBlank(message = "Pole musi być uzupełnione")
     private String surname;
 
-    @Pattern(regexp="(?=^.{8,}$)(?=.*\\d)(?=.*[!@#$%^&*]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$", message = "Hasło musi posiadać co najmniej 8 znaków, w tym dużą literę, małą literę, cyfrę oraz znak specjalny")
+    @Pattern(regexp = "(?=^.{8,}$)(?=.*\\d)(?=.*[!@#$%^&*]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$", message = "Hasło musi posiadać co najmniej 8 znaków, w tym dużą literę, małą literę, cyfrę oraz znak specjalny")
     private String password;
 
     @Email(message = "Tu musi być wprowadzony email")
@@ -42,7 +42,7 @@ public class RegistrationFormDTO implements Serializable {
                 '}';
     }
 
-    public UserEntity toUserEntity(PasswordEncoder passwordEncoder){
+    public UserEntity toUserEntity(PasswordEncoder passwordEncoder) {
         UserEntity user = new UserEntity();
         user.setUsername(this.username);
         user.setFirstName(this.firstName);

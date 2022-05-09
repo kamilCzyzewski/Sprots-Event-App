@@ -29,7 +29,7 @@ public class RegistrationController {
     }
 
     @GetMapping
-    public String registrationView(Model model){
+    public String registrationView(Model model) {
         LOGGER.info("registrationView()");
         model.addAttribute("registrationFormDTO", new RegistrationFormDTO());
         LOGGER.info("registrationView()");
@@ -40,7 +40,7 @@ public class RegistrationController {
     @PostMapping
     public String createUser(@Valid RegistrationFormDTO registrationFormDTO, Errors errors) throws UserException {
         LOGGER.info("createUser({})", registrationFormDTO);
-        if(errors.hasErrors()){
+        if (errors.hasErrors()) {
             return "registration";
         }
 

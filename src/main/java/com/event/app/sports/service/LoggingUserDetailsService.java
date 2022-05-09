@@ -24,7 +24,7 @@ public class LoggingUserDetailsService implements UserDetailsService {
         LOGGER.info("loadUserByUsername({})", username);
         UserEntity user = userRepository.findOneByUsername(username);
         if (user != null) {
-            LOGGER.debug("loadUserByUsername({}) = {}", username, user);
+            LOGGER.info("loadUserByUsername({}) = {}", username, user);
             return user;
         }
         LOGGER.info("loadUserByUsername({}) = {}", username, "not found");

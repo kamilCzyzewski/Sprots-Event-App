@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AccessDeniedController {
     private static final Logger LOGGER = LogManager.getLogger(AccessDeniedController.class.getName());
 
-    /**
-     * This method returns view informing user that access was denied.
-     */
     @GetMapping("/access-denied")
     public String getAccessDenied() {
         LOGGER.info("getAccessDenied()");

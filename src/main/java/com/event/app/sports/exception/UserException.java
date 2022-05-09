@@ -1,6 +1,6 @@
 package com.event.app.sports.exception;
 
-public class UserException extends SportsApplicationException{
+public class UserException extends SportsApplicationException {
 
     public UserException(String message) {
         super(message);
