@@ -5,7 +5,6 @@ import com.event.app.sports.model.dto.RegistrationFormDTO;
 import com.event.app.sports.service.RegistrationService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.Errors;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
