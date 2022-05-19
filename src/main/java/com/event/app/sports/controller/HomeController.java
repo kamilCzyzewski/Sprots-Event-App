@@ -15,11 +15,6 @@ import java.security.Principal;
 public class HomeController {
 
     private static final Logger LOGGER = LogManager.getLogger(HomeController.class.getName());
-    private final PasswordEncoder passwordEncoder;
-
-    public HomeController(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @GetMapping("/")
     public String dashboard(Principal principal, Model model) {

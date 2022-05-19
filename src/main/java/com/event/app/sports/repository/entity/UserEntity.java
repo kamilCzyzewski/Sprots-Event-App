@@ -23,6 +23,11 @@ public class UserEntity implements UserDetails {
     private String firstName;
     private String surname;
     private String mail;
+    private Boolean isVisible;
+
+    {
+        this.isVisible = true;
+    }
 
     public UserEntity() {
     }
@@ -75,6 +80,14 @@ public class UserEntity implements UserDetails {
         this.mail = mail;
     }
 
+    public Boolean getVisible() {
+        return isVisible;
+    }
+
+    public void setVisible(Boolean visible) {
+        isVisible = visible;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
@@ -82,22 +95,22 @@ public class UserEntity implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return isVisible;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return isVisible;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return isVisible;
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isVisible;
     }
 
     @Override
@@ -105,10 +118,11 @@ public class UserEntity implements UserDetails {
         return "UserEntity{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", password='" + password.replaceAll(".", "*") + '\'' +
+                ", password='" + password + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", surname='" + surname + '\'' +
                 ", mail='" + mail + '\'' +
+                ", isVisible=" + isVisible +
                 '}';
     }
 }
