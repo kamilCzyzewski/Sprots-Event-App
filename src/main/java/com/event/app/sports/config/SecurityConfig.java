@@ -44,8 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .xssProtection()
                 .and()
                 .frameOptions()
-                .sameOrigin()
-        ;
+                .sameOrigin();
     }
 
     @Bean
