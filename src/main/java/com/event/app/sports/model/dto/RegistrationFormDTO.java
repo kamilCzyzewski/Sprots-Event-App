@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 @Builder
-public class RegistrationFormDTO implements Serializable {
+public class RegistrationFormDTO {
 
     @NotBlank(message = "Pole musi być uzupełnione")
     private String username;
@@ -24,7 +24,9 @@ public class RegistrationFormDTO implements Serializable {
     @NotBlank(message = "Pole musi być uzupełnione")
     private String surname;
 
-    @Pattern(regexp = "(?=^.{8,}$)(?=.*\\d)(?=.*[!@#$%^&*]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$", message = "Hasło musi posiadać co najmniej 8 znaków, w tym dużą literę, małą literę, cyfrę oraz znak specjalny")
+    @Pattern(regexp = "(?=^.{8,}$)(?=.*\\d)(?=.*[!@#$%^&*]+)(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$",
+            message = "Hasło musi posiadać co najmniej 8 znaków, w tym dużą literę, małą " +
+                    "literę, cyfrę oraz znak specjalny")
     private String password;
 
     @Email(message = "Tu musi być wprowadzony email")
