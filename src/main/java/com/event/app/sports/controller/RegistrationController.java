@@ -21,11 +21,9 @@ public class RegistrationController {
 
     private static final Logger LOGGER = LogManager.getLogger(RegistrationController.class.getName());
     private final RegistrationService registrationService;
-    private final PasswordEncoder passwordEncoder;
 
-    public RegistrationController(RegistrationService registrationService, PasswordEncoder passwordEncoder) {
+    public RegistrationController(RegistrationService registrationService) {
         this.registrationService = registrationService;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -44,7 +42,7 @@ public class RegistrationController {
             return "registration";
         }
 
-        registrationService.createUserFromRegistrationForm(registrationFormDTO, passwordEncoder);
+        registrationService.createUserFromRegistrationForm(registrationFormDTO);
         LOGGER.info("createUser({})", registrationFormDTO);
 
         return "redirect:/login";

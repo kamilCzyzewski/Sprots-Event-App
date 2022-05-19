@@ -15,12 +15,14 @@ public class RegistrationService {
 
     private static final Logger LOGGER = LogManager.getLogger(RegistrationService.class.getName());
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
-    public RegistrationService(UserService userService) {
+    public RegistrationService(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public UserModel createUserFromRegistrationForm(RegistrationFormDTO registrationFormDTO, PasswordEncoder passwordEncoder) throws UserException {
+    public UserModel createUserFromRegistrationForm(RegistrationFormDTO registrationFormDTO) throws UserException {
         LOGGER.info("isPasswordsEqual({}, {})", registrationFormDTO, passwordEncoder);
         UserEntity user = registrationFormDTO.toUserEntity(passwordEncoder);
         UserModel createdUser = userService.create(user);
