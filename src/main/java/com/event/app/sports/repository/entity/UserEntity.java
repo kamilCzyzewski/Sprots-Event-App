@@ -23,6 +23,7 @@ public class UserEntity implements UserDetails {
     private String firstName;
     private String surname;
     private String mail;
+    private Integer age;
     private Boolean isVisible;
 
     {
@@ -113,6 +114,14 @@ public class UserEntity implements UserDetails {
         return isVisible;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     @Override
     public String toString() {
         return "UserEntity{" +
@@ -122,6 +131,7 @@ public class UserEntity implements UserDetails {
                 ", firstName='" + firstName + '\'' +
                 ", surname='" + surname + '\'' +
                 ", mail='" + mail + '\'' +
+                ", age=" + age +
                 ", isVisible=" + isVisible +
                 '}';
     }

@@ -87,6 +87,16 @@
                    th:errors="*{password}">Błędne hasło</p>
             </div>
 
+            <div class="p-2">
+                <div class="bd-highlight text-center">
+                    <input class="coolinput" th:field="*{age}" id="age" type="age" name="age"
+                           placeholder="Wiek"/>
+                </div>
+                <p th:if="${#fields.hasErrors('age')}"
+                   class="validationError bd-highlight text-center text-wrap text-danger h6 text-wrap" style="width: 20rem;"
+                   th:errors="*{age}">Błędne hasło</p>
+            </div>
+
             <div class="row d-grid gap-1 col-12 mx-auto" style="text-align: center;">
                 <div class="mt-2 p-2 bd-highlight text-center">
                     <button type="submit" class="btn btn-danger btn-lg btn-width">Zarejestruj</button>

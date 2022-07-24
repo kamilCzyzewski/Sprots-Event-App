@@ -1,12 +1,12 @@
 package com.event.app.sports.model.dto;
 
+import com.event.app.sports.annotation.Age;
 import com.event.app.sports.repository.entity.UserEntity;
 import lombok.*;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @NoArgsConstructor
@@ -33,16 +33,8 @@ public class RegistrationFormDTO {
     @NotBlank(message = "Pole musi być uzupełnione")
     private String mail;
 
-    @Override
-    public String toString() {
-        return "RegistrationFormDTO{" +
-                "username='" + username + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", surname='" + surname + '\'' +
-                ", password='" + "***" + '\'' +
-                ", mail='" + mail + '\'' +
-                '}';
-    }
+    @Age
+    private Integer age;
 
     public UserEntity toUserEntity(PasswordEncoder passwordEncoder) {
         UserEntity user = new UserEntity();
